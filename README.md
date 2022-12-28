@@ -24,16 +24,16 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 * [x ] Create a forked copy of this project.
 * [x ] Clone your OWN version of the repository (Not Bloomtech's by mistake!).
-* [ ] Implement the project on your main branch, committing changes regularly.
-* [ ] Push commits: git push origin main.
+* [ x] Implement the project on your main branch, committing changes regularly.
+* [x ] Push commits: git push origin main.
 
 **Follow these steps for completing your project.**
 
-* [ ] Copy link to canvas
+* [x ] Copy link to canvas
 
 ### Project Setup
 
-* [ ] Navigate to the root of the project with your command line.
+* [ x] Navigate to the root of the project with your command line.
 * [x ] Run `npm install` to download any dependencies listed in the `package.json` file.
 * [x ] Run `npm start` to compile your project and launch a development server.
 
@@ -41,7 +41,7 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 #### Installing Axios with npm
 
-* [ ] Navigate to the root of the project with your command line.
+* [x ] Navigate to the root of the project with your command line.
 * [x ] Run `npm install axios` to download the dependency (it will be added to the `package.json` file).
 * [x ] At the top of the `GitHubCard/index.js` file, type `import axios from 'axios';`
 

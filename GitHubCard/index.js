@@ -5,6 +5,13 @@ import axios from 'axios';
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+function getGitHub(name){
+  axios.get(`https://api.github.com/users/${name}`)
+.then(res=> {
+  document.querySelector('.cards').appendChild(cardMaker(res.data))
+})
+.catch(err => console.log(err))
+}
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -30,7 +37,22 @@ import axios from 'axios';
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  'albertbrannan4',
+  "RuiWang9898",
+  'tetondan',
+  'dustinmyers',
+  'justsml',
+  'luishrd',
+  'bigknell',
+  "FftyShadesofCode",
+  "nyamekyeannor",
+  
+];
+followersArray.forEach(each=>{
+  getGitHub(each)
+})
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -60,3 +82,47 @@ const followersArray = [];
     luishrd
     bigknell
 */
+function cardMaker({avatar_url,name,login,location,url,followers,following,bio}){
+
+  const card = document.createElement('div');
+  const imgOfUser = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const UsersH3 = document.createElement('h3');
+  const usrname = document.createElement('p');
+  const usrlocation = document.createElement('p');
+  const profileLinkWrapper = document.createElement('p');
+  const profileLink = document.createElement('a');
+  const usrfollowers = document.createElement('p');
+  const usrfollowing = document.createElement('p');
+  const  userBio = document.createElement('p');
+
+
+  card.appendChild(imgOfUser);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(UsersH3);
+  cardInfo.appendChild(usrname);
+  cardInfo.appendChild(usrlocation);
+  cardInfo.appendChild(profileLinkWrapper);
+  profileLinkWrapper.appendChild(profileLink);
+  cardInfo.appendChild(usrfollowers);
+  cardInfo.appendChild(usrfollowing);
+  cardInfo.appendChild(userBio);
+
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  UsersH3.classList.add('name');
+  usrname.classList.add('username');
+
+  imgOfUser.src = avatar_url;
+  UsersH3.textContent = name;
+  usrname.textContent = login;
+  usrlocation.textContent = location;
+  profileLink.href = url;
+  usrfollowers.textContent = followers;
+  usrfollowing.textContent = following;
+  userBio.textContent = bio;
+
+
+  return card;
+}
+
